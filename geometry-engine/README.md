@@ -9,5 +9,6 @@
 ## リソース
 
 * [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/)
->* [esri/geometry/geometryEngine](https://developers.arcgis.com/javascript/jsapi/esri.geometry.geometryengine-amd.html)
->* [esri/geometry/geometryEngineAsync](https://developers.arcgis.com/javascript/jsapi/esri.geometry.geometryengineasync-amd.html)
+>　* [esri/geometry/geometryEngine](https://developers.arcgis.com/javascript/jsapi/esri.geometry.geometryengine-amd.html)
+
+>　* [esri/geometry/geometryEngineAsync](https://developers.arcgis.com/javascript/jsapi/esri.geometry.geometryengineasync-amd.html)
