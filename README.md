@@ -16,6 +16,8 @@ ArcGIS API for JavaScript のサンプル集です。
 * Safari 3+
 * Internet Explorer 7+
 
+※一部 HTML5 を利用した機能についてはブラウザーの制限があります。
+
 ## リソース
 
 * [GeoNet 開発者コミュニティ サイト](https://geonet.esri.com/groups/devcom-jp)
@@ -35,4 +37,3 @@ Apache License Version 2.0（「本ライセンス」）に基づいてライセ
 
 [](EsriJapan Tags: <タグ（半角スペース区切り）>)
 [](EsriJapan Language: <開発言語>)
-
