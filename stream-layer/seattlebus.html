@@ -65,7 +65,7 @@
         map = new Map("map", {
           basemap: "streets",
           center: [-122.402, 47.642],
-          zoom: 12
+          zoom: 10
         });
         addStreamLayer();
       }
@@ -87,9 +87,6 @@
           //Connect and Disconnect events
           streamLayer.on("connect", processConnect);
           streamLayer.on("disconnect", processDisconnect);
-
-          //FilterChange event
-          streamLayer.on("filter-change", processFilterChange);
 
           //Add layer to map
           map.addLayer(streamLayer);
