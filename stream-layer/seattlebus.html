@@ -41,8 +41,8 @@
       "esri/layers/StreamLayer",
       "esri/InfoTemplate",
       "esri/graphic",
-      "esri/symbols/SimpleFillSymbol",
-      "esri/symbols/SimpleLineSymbol",
+      "esri/symbols/PictureMarkerSymbol",
+      "esri/renderers/ClassBreaksRenderer",
       "dojo/_base/Color",
       "dojo/on",
       "dojo/domReady!"
@@ -52,14 +52,12 @@
       StreamLayer, 
       InfoTemplate, 
       Graphic, 
-      SimpleFillSymbol,
-      SimpleLineSymbol, 
+      PictureMarkerSymbol,
+      ClassBreaksRenderer,
       Color, 
       on
     ) {
-      var map,
-          drawTools,
-          streamLayer;
+      var map, streamLayer;
 
       function init(){
         map = new Map("map", {
@@ -72,26 +70,37 @@
 
       /*************************************************
        *
-       * Functions to add and remove Stream Layer
+       * ストリーム レイヤーの追加/削除
        *
        *************************************************/
       function addStreamLayer(){
-        //construct Stream Layer
+        // バスのシンボル
+        var defaultSymbol = new PictureMarkerSymbol("img/bus-stop-north.png", 27, 31);
+        var eastSymbol = new PictureMarkerSymbol("img/bus-stop-east.png", 31, 27);
+        var northSymbol = new PictureMarkerSymbol("img/bus-stop-north.png", 27, 31);
+        var southSymbol = new PictureMarkerSymbol("img/bus-stop-south.png", 27, 31);
+        var westSymbol = new PictureMarkerSymbol("img/bus-stop-west.png", 31, 27);
+        // 数値分類レンダラー（バスの角度に応じてシンボルを適用）
+        var renderer = new ClassBreaksRenderer(defaultSymbol, "Heading");
+        renderer.addBreak(0, 90, northSymbol);
+        renderer.addBreak(90, 180, eastSymbol);
+        renderer.addBreak(180, 270, southSymbol);
+        renderer.addBreak(270, 360, westSymbol);
+
+        // ストリーム レイヤー
         streamLayer = new StreamLayer(streamUrl, {
           purgeOptions: { displayCount: 10000 },
           infoTemplate: new InfoTemplate("Attributes", "${*}")
         });
+        streamLayer.setRenderer(renderer);
 
-        //When layer loads, register listeners for layer events and add layer to map
+        // ストリーム レイヤーの読み込み完了イベント
         streamLayer.on("load", function(){
-          //Connect and Disconnect events
+          // ストリーム レイヤーの接続/切断イベント
           streamLayer.on("connect", processConnect);
           streamLayer.on("disconnect", processDisconnect);
 
-          //FilterChange event
-          streamLayer.on("filter-change", processFilterChange);
-
-          //Add layer to map
+          // マップにストリーム レイヤーを追加
           map.addLayer(streamLayer);
         });
       }
@@ -106,15 +115,15 @@
 
       /*********************************************************
        *
-       * Stream layer event handlers
+       * ストリーム レイヤーのイベント ハンドラー
        *
        *********************************************************/
       function processConnect(){
-
+        console.log("ストリーム サービスに接続されました");
       }
 
       function processDisconnect(){
-
+        console.log("ストリーム サービスが切断されました");
       }
 
       init();
