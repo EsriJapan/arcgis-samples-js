@@ -98,6 +98,7 @@
           purgeOptions: { displayCount: 10000 },
           infoTemplate: new InfoTemplate("Attributes", "${*}")
         });
+        streamLayer.setRenderer(renderer);
 
         //When layer loads, register listeners for layer events and add layer to map
         streamLayer.on("load", function(){
