@@ -43,6 +43,8 @@
       "esri/graphic",
       "esri/symbols/SimpleFillSymbol",
       "esri/symbols/SimpleLineSymbol",
+      "esri/symbols/PicureMarkerSymbol",
+      "esri/renderers/ClassBreaksRenderer",
       "dojo/_base/Color",
       "dojo/on",
       "dojo/domReady!"
@@ -54,6 +56,8 @@
       Graphic, 
       SimpleFillSymbol,
       SimpleLineSymbol, 
+      PicureMarkerSymbol,
+      ClassBreaksRenderer,
       Color, 
       on
     ) {
@@ -76,6 +80,19 @@
        *
        *************************************************/
       function addStreamLayer(){
+        //
+        var defaultSymbol = new PicureMarkerSymbol("img/bus-stop-north.png", 27, 31);
+        var eastSymbol = new PictureMarkerSymbol("img/bus-stop-east.png", 31, 27);
+        var northSymbol = new PictureMarkerSymbol("img/bus-stop-north.png", 27, 31);
+        var southSymbol = new PictureMarkerSymbol("img/bus-stop-south.png", 27, 31);
+        var westSymbol = new PictureMarkerSymbol("img/bus-stop-west.png", 31, 27);
+        //
+        var renderer = new ClassBreaksRenderer(defaultSymbol, "Heading");
+        renderer.addBreak(0, 90, northSymbol);
+        renderer.addBreak(90, 180, eastSymbol);
+        renderer.addBreak(180, 270, southSymbol);
+        renderer.addBreak(270, 360, westSymbol);
+
         //construct Stream Layer
         streamLayer = new StreamLayer(streamUrl, {
           purgeOptions: { displayCount: 10000 },
