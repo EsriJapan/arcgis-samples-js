@@ -17,22 +17,38 @@
         overflow: hidden;
         font-family: "Trebuchet MS";
       }
+	  #LocateButton {
+      position: absolute;
+      top: 95px;
+      left: 20px;
+      z-index: 50;
+	  }
     </style>
     <script src="http://js.arcgis.com/3.14/"></script>
     <script>
       var map;
 
-      require(["esri/map", "dojo/domReady!"], function(Map) {
+      require(["esri/map", "esri/dijit/LocateButton","dojo/domReady!"], function(Map,LocateButton) {
         map = new Map("map", {
           basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
           center: [-122.45, 37.75], // longitude, latitude
           zoom: 13
         });
+
+
+      geoLocate = new LocateButton({
+        map: map,
+        highlightLocation:true
+      }, "LocateButton");
+      geoLocate.startup();
+
       });
     </script>
   </head>
 
   <body>
-    <div id="map"></div>
+    <div id="map">
+	  <div id="LocateButton"></div>
+    </div>
   </body>
 </html>
