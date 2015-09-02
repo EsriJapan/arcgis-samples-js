@@ -17,24 +17,39 @@
         overflow: hidden;
         font-family: "Trebuchet MS";
       }
+<<<<<<< HEAD
 	  #LocateButton {
       position: absolute;
       top: 95px;
       left: 20px;
       z-index: 50;
 	  }
+=======
+      #search {
+         display: block;
+         position: absolute;
+         z-index: 2;
+         top: 20px;
+         left: 74px;
+      }
+>>>>>>> gh-pages
     </style>
     <script src="http://js.arcgis.com/3.14/"></script>
     <script>
       var map;
 
+<<<<<<< HEAD
       require(["esri/map", "esri/dijit/LocateButton","dojo/domReady!"], function(Map,LocateButton) {
+=======
+      require(["esri/map", "esri/dijit/Search", "dojo/domReady!"], function(Map, Search) {
+>>>>>>> gh-pages
         map = new Map("map", {
-          basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
-          center: [-122.45, 37.75], // longitude, latitude
-          zoom: 13
+          basemap: "streets",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
+          center: [135.312, 34.307], // longitude, latitude
+          zoom: 10
         });
 
+<<<<<<< HEAD
 
       geoLocate = new LocateButton({
         map: map,
@@ -42,13 +57,24 @@
       }, "LocateButton");
       geoLocate.startup();
 
+=======
+        var s = new Search({
+            map: map
+         }, "search");
+         s.startup();
+>>>>>>> gh-pages
       });
     </script>
   </head>
 
   <body>
+<<<<<<< HEAD
     <div id="map">
 	  <div id="LocateButton"></div>
     </div>
+=======
+    <div id="search"></div>
+    <div id="map"></div>
+>>>>>>> gh-pages
   </body>
 </html>
