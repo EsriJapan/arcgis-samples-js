@@ -22,12 +22,16 @@
     <script>
       var map;
 
-      require(["esri/map", "dojo/domReady!"], function(Map) {
+      require(["esri/map", "esri/layers/FeatureLayer", "dojo/domReady!"], function(Map, FeatureLayer) {
         map = new Map("map", {
           basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
           center: [-122.45, 37.75], // longitude, latitude
           zoom: 13
         });
+        var featureLayer = new FeatureLayer("https://services3.arcgis.com/iH4Iz7CEdh5xTJYb/arcgis/rest/services/Osaka_shi_Shisetsu_Kosyutoire/FeatureServer/0",{
+            mode: FeatureLayer.MODE_ONDEMAND
+          });
+          map.addLayer(featureLayer);
       });
     </script>
   </head>
