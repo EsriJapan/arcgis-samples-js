@@ -35,18 +35,14 @@
     <script>
       var map;
 
-<<<<<<< Updated upstream
-      require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer","esri/dijit/LocateButton", "dojo/domReady!"], function(Map, Search, FeatureLayer,LocateButton) ) {
-=======
-      require(["esri/map", "esri/dijit/Search", "esri/dijit/LocateButton", "dojo/domReady!"], function(Map, Search, LocateButton) {
->>>>>>> Stashed changes
+      require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer","esri/dijit/LocateButton", "dojo/domReady!"], function(Map, Search, FeatureLayer,LocateButton) {
         map = new Map("map", {
           basemap: "streets",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
           center: [135.312, 34.307], // longitude, latitude
           zoom: 10
 
         });
-        
+
         geoLocate = new LocateButton({
           map: map
         }, "LocateButton");
@@ -61,12 +57,12 @@
             map: map
          }, "search");
          s.startup();
-		 
+
 	geoLocate = new LocateButton({
         map: map
       }, "LocateButton");
       geoLocate.startup();
-	  
+
       });
     </script>
   </head>
