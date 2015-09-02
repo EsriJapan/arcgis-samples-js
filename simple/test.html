@@ -29,7 +29,7 @@
     <script>
       var map;
 
-      require(["esri/map", "esri/dijit/Search", "dojo/domReady!"], function(Map, Search) {
+      require(["esri/map", "esri/dijit/Search","esri/dijit/LocateButton", "dojo/domReady!"], function(Map, Search, LocateButton) {
         map = new Map("map", {
           basemap: "streets",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
 <<<<<<< HEAD
@@ -40,6 +40,11 @@
           zoom: 10
 >>>>>>> gh-pages
         });
+        
+        geoLocate = new LocateButton({
+          map: map
+        }, "LocateButton");
+        geoLocate.startup();
 
         var s = new Search({
             map: map
