@@ -17,22 +17,35 @@
         overflow: hidden;
         font-family: "Trebuchet MS";
       }
+      #search {
+         display: block;
+         position: absolute;
+         z-index: 2;
+         top: 20px;
+         left: 74px;
+      }
     </style>
     <script src="http://js.arcgis.com/3.14/"></script>
     <script>
       var map;
 
-      require(["esri/map", "dojo/domReady!"], function(Map) {
+      require(["esri/map", "esri/dijit/Search", "dojo/domReady!"], function(Map, Search) {
         map = new Map("map", {
           basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
           center: [-122.45, 37.75], // longitude, latitude
           zoom: 13
         });
+
+        var s = new Search({
+            map: map
+         }, "search");
+         s.startup();
       });
     </script>
   </head>
 
   <body>
+    <div id="search"></div>
     <div id="map"></div>
   </body>
 </html>
