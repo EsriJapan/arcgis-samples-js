@@ -17,26 +17,41 @@
         overflow: hidden;
         font-family: "Trebuchet MS";
       }
+      #search {
+         display: block;
+         position: absolute;
+         z-index: 2;
+         top: 20px;
+         left: 74px;
+      }
     </style>
     <script src="http://js.arcgis.com/3.14/"></script>
     <script>
       var map;
 
-      require(["esri/map", "esri/layers/FeatureLayer", "dojo/domReady!"], function(Map, FeatureLayer) {
+
+      require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "dojo/domReady!"], function(Map, Search, FeatureLayer) {
         map = new Map("map", {
-          basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
-          center: [-122.45, 37.75], // longitude, latitude
-          zoom: 13
+          basemap: "streets",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
+          center: [135.312, 34.307], // longitude, latitude
+          zoom: 10
         });
+
         var featureLayer = new FeatureLayer("https://services3.arcgis.com/iH4Iz7CEdh5xTJYb/arcgis/rest/services/Osaka_shi_Shisetsu_Kosyutoire/FeatureServer/0",{
         mode: FeatureLayer.MODE_ONDEMAND
           });
           map.addLayer(featureLayer);
+
+        var s = new Search({
+            map: map
+         }, "search");
+         s.startup();
       });
     </script>
   </head>
 
   <body>
+    <div id="search"></div>
     <div id="map"></div>
   </body>
 </html>
