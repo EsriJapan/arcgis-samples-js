@@ -29,7 +29,12 @@
     <script>
       var map;
 
+<<<<<<< HEAD
       require(["esri/map", "esri/dijit/Search","esri/dijit/LocateButton", "dojo/domReady!"], function(Map, Search, LocateButton) {
+=======
+
+      require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "dojo/domReady!"], function(Map, Search, FeatureLayer) {
+>>>>>>> gh-pages
         map = new Map("map", {
           basemap: "streets",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
 <<<<<<< HEAD
@@ -45,6 +50,11 @@
           map: map
         }, "LocateButton");
         geoLocate.startup();
+
+        var featureLayer = new FeatureLayer("https://services3.arcgis.com/iH4Iz7CEdh5xTJYb/arcgis/rest/services/Osaka_shi_Shisetsu_Kosyutoire/FeatureServer/0",{
+        mode: FeatureLayer.MODE_ONDEMAND
+          });
+          map.addLayer(featureLayer);
 
         var s = new Search({
             map: map
