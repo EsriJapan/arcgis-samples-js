@@ -18,17 +18,30 @@
         font-family: "Trebuchet MS";
       }
     </style>
-    <script src="http://js.arcgis.com/3.14/"></script>
-    <script>
-      var map;
+    <script type="text/javascript" src="http://js.arcgis.com/4.0beta1/"></script>
 
-      require(["esri/map", "dojo/domReady!"], function(Map) {
-        map = new Map("map", {
-          basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
-          center: [-122.45, 37.75], // longitude, latitude
-          zoom: 13
-        });
+    <script>
+    var map, view;
+
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "dojo/domReady!"
+    ], function (Map, MapView){
+
+      map = new Map({
+        basemap: "streets"
       });
+
+      view = new MapView({
+        // さいとう　とうじょう
+        container: "viewDiv",
+        map: map,
+        zoom: 10,
+        center: [135.312, 34.307]
+      });
+
+    });
     </script>
   </head>
 
