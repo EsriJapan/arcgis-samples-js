@@ -24,12 +24,22 @@
          top: 20px;
          left: 74px;
       }
+	   #LocateButton {
+      position: absolute;
+      top: 95px;
+      left: 20px;
+      z-index: 50;
+    }
     </style>
     <script src="http://js.arcgis.com/3.14/"></script>
     <script>
       var map;
 
+<<<<<<< Updated upstream
       require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer","esri/dijit/LocateButton", "dojo/domReady!"], function(Map, Search, FeatureLayer,LocateButton) ) {
+=======
+      require(["esri/map", "esri/dijit/Search", "esri/dijit/LocateButton", "dojo/domReady!"], function(Map, Search, LocateButton) {
+>>>>>>> Stashed changes
         map = new Map("map", {
           basemap: "streets",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
           center: [135.312, 34.307], // longitude, latitude
@@ -51,12 +61,19 @@
             map: map
          }, "search");
          s.startup();
+		 
+	geoLocate = new LocateButton({
+        map: map
+      }, "LocateButton");
+      geoLocate.startup();
+	  
       });
     </script>
   </head>
 
   <body>
     <div id="search"></div>
-    <div id="map"></div>
+    <div id="map"><div id="LocateButton"></div>
+</div>
   </body>
 </html>
