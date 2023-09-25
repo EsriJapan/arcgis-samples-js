@@ -1,13 +1,18 @@
 # arcgis-samples-js
+> このリポジトリで使用している [ArcGIS API for JavaScript 3.x](https://developers.arcgis.com/javascript/3/) は、サポート終了が 2024 年 7 月に予定されており、不具合修正やマイナー アップデートに重点が置かれています。
+>
+> ArcGIS API for JavaScript 3.x のサポート終了についての詳細は、ArcGIS ブログ「[ArcGIS API for JavaScript 3.x のサポート終了について](https://blog.esrij.com/2023/03/17/post-48662/)」をご参照ください。
+>
+> Web アプリの開発には、最新バージョンの [ArcGIS Maps SDK for JavaScript](https://www.esrij.com/products/arcgis-maps-sdk-for-javascript/) をご利用ください。
 
 ArcGIS API for JavaScript のサンプル集です。
 
 ## 使用している製品・プロジェクト
 
-* [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/)
-* [ArcGIS for Developers](https://developers.arcgis.com/en/)
+* [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/3/)
+* [ArcGIS Developers](https://developers.arcgis.com/)
 
-**ArcGIS の開発キットを使用して開発を行う場合は ArcGIS Online 開発者アカウント（[ArcGIS for Developers](https://developers.arcgis.com/en/)）が必要です。開発者アカウント作成ガイドは[こちら](http://www.esrij.com/cgi-bin/wp/wp-content/uploads/documents/signup-esri-developers.pdf)**
+**ArcGIS の開発キットを使用して開発を行う場合は ArcGIS 開発者アカウント（[ArcGIS for Developers](https://developers.arcgis.com/)）が必要です。開発者アカウント作成ガイドは[こちら](https://esrijapan.github.io/arcgis-dev-resources/guide/get-dev-account/)**
 
 ## 動作環境
 
@@ -21,8 +26,7 @@ ArcGIS API for JavaScript のサンプル集です。
 ## リソース
 
 * [GeoNet 開発者コミュニティ サイト](https://geonet.esri.com/groups/devcom-jp)
-* [ArcGIS API for JavaScript（ESRIジャパン）](http://www.esrij.com/products/arcgis-api-for-javascript/)
-* [リファレンス](https://developers.arcgis.com/javascript/jsapi/)
+* [リファレンス](https://developers.arcgis.com/javascript/3/jshelp/)
 
 ## ライセンス
 Copyright 2015 Esri Japan Corporation.
